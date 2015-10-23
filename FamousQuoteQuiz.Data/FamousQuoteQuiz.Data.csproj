@@ -55,11 +55,16 @@
     <Compile Include="FamousQuizData.cs" />
     <Compile Include="IFamousQuizData.cs" />
     <Compile Include="FamousQuizDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FamousQuoteQuiz.Common\FamousQuoteQuiz.Common.csproj">
+      <Project>{e5c90477-2474-4026-a6b3-393053709d90}</Project>
+      <Name>FamousQuoteQuiz.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FamousQuoteQuiz.Models\FamousQuoteQuiz.Models.csproj">
       <Project>{1e1312f5-bac5-461a-805a-8e0ec581f03c}</Project>
       <Name>FamousQuoteQuiz.Models</Name>
