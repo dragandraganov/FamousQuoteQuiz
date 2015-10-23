@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamousQuoteQuiz.Data", "Fam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamousQuoteQuiz.Models", "FamousQuoteQuiz.Models\FamousQuoteQuiz.Models.csproj", "{1E1312F5-BAC5-461A-805A-8E0EC581F03C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamousQuoteQuiz.Web", "FamousQuoteQuiz.Web\FamousQuoteQuiz.Web.csproj", "{B2DC724D-B70C-42A4-A4D1-CB4D25D375A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamousQuoteQuiz.Web", "FamousQuoteQuiz.Web\FamousQuoteQuiz.Web.csproj", "{B9A6EFF8-4CF3-4B79-ADFF-332FE5BB2EA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{1E1312F5-BAC5-461A-805A-8E0EC581F03C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E1312F5-BAC5-461A-805A-8E0EC581F03C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E1312F5-BAC5-461A-805A-8E0EC581F03C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B2DC724D-B70C-42A4-A4D1-CB4D25D375A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B2DC724D-B70C-42A4-A4D1-CB4D25D375A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B2DC724D-B70C-42A4-A4D1-CB4D25D375A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B2DC724D-B70C-42A4-A4D1-CB4D25D375A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9A6EFF8-4CF3-4B79-ADFF-332FE5BB2EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9A6EFF8-4CF3-4B79-ADFF-332FE5BB2EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9A6EFF8-4CF3-4B79-ADFF-332FE5BB2EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9A6EFF8-4CF3-4B79-ADFF-332FE5BB2EA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
