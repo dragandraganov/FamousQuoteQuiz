@@ -19,6 +19,7 @@ namespace FamousQuoteQuiz.Models
         public int Id { get; set; }
 
         [Required]
+        [MaxLength(450)]
         [Index(IsUnique = true)]
         public string FullName { get; set; }
 

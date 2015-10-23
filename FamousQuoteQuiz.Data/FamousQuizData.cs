@@ -1,4 +1,5 @@
 ﻿using FamousQuoteQuiz.Data.Repositories;
+using FamousQuoteQuiz.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -25,9 +26,29 @@ namespace FamousQuoteQuiz.Data
             }
         }
 
-        public IRepository<Models.User> Users
+        public IRepository<User> Users
         {
-            get { throw new NotImplementedException(); }
+
+            get
+            {
+                return this.GetRepository<User>();
+            }
+        }
+
+        public IRepository<Question> Questions
+        {
+            get
+            {
+                return this.GetRepository<Question>();
+            }
+        }
+
+        public IRepository<Author> Authors
+        {
+            get
+            {
+                return this.GetRepository<Author>();
+            }
         }
 
         public void Dispose()
@@ -62,5 +83,6 @@ namespace FamousQuoteQuiz.Data
 
             return (IRepository<T>)this.repositories[typeof(T)];
         }
+
     }
 }

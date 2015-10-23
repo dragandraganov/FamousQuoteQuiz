@@ -18,6 +18,10 @@ namespace FamousQuoteQuiz.Data
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<FamousQuizDbContext, Configuration>());
         }
 
+        public virtual IDbSet<Question> Questions { get; set; }
+
+        public virtual IDbSet<Author> Authors { get; set; }
+
         public static FamousQuizDbContext Create()
         {
             return new FamousQuizDbContext();

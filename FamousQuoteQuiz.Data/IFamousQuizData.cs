@@ -15,6 +15,10 @@ namespace FamousQuoteQuiz.Data
 
         IRepository<User> Users { get; }
 
+        IRepository<Question> Questions { get; }
+
+        IRepository<Author> Authors { get; }
+
         void Dispose();
 
         int SaveChanges();
