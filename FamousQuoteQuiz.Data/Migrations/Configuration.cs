@@ -35,7 +35,7 @@ namespace FamousQuoteQuiz.Data.Migrations
                 }
 
                 var user = new User();
-                user.UserName = "admin";
+                user.UserName = "admin@com.com";
                 user.Email = "admin@com.com";
                 this.userManager.Create(user, "111111");
                 this.userManager.AddToRole(user.Id, GlobalConstants.AdminRole);
