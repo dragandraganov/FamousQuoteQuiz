@@ -3,39 +3,21 @@
 <div>
     @Html.HiddenFor(m => m.Question.Id, new { @class = "question", @id = @Model.Question.Id })
 
-    @Model.Question.Description
+    <div class="gray-label">Who Said It?</div>
+    <div class="description">"@Model.Question.Description"</div>
 
     <div id="result_view"></div>
-    @Html.ActionLink("Next", "Index", null, new { @class = "hidden_el btn btn-info", @id = "btn_next" })
+    <div class="btn-wrapper">
+        @Html.ActionLink("Next", "Index", null, new { @class = "hidden_el btn btn-info", @id = "btn_next" })
+    </div>
     <div id="authors_container">
         @foreach (var author in Model.Authors)
         {
-            <div>
-                <a class="authors" id="@author.Id">@author.FullName</a>
+            <div class="authors-wrapper">
+                <a class="authors" id="@author.Id">-> @author.FullName</a>
             </div>
         }
     </div>
 
 </div>
 
-@section Scripts{
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".authors").click(function () {
-                var questionId = $(".question").attr('id');
-                var authorId = $(this).attr('id');
-                $.ajax({
-                    url: "/Home/IsUserChoiseCorrect",
-                    method: "POST",
-                    data: { questionId: questionId, authorId: authorId },
-                    success: function (data) {
-                        $("#result_view").html(data);
-                        $("#authors_container").hide();
-                        $("#btn_next").show();
-                        console.log(data);
-                    }
-                });
-            })
-        })
-    </script>
-}

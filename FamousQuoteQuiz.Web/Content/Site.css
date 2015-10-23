@@ -1,6 +1,10 @@
 ﻿body {
-    padding-top: 50px;
+    margin-top: 50px !important;
+    max-width: 250px;
     padding-bottom: 20px;
+    margin: auto;
+    border: 2px solid black;
+    font-size: 16px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -25,4 +29,58 @@ textarea {
 
 .hidden_el {
     display: none;
+}
+
+.gray-label {
+    color: gray;
+    opacity: 0.9;
+}
+
+.description {
+    background-color: #fb4c8c;
+    border-radius: 5px;
+    padding: 15px 5px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.p10 {
+    padding: 10px !important;
+}
+
+.authors-wrapper {
+    font-size: 13px;
+    background-color: gray;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+.authors {
+    color: white;
+    cursor: pointer;
+}
+
+    .authors:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+#authors_container {
+    max-width: 80%;
+    margin: auto;
+}
+
+#result_view {
+    display: none;
+    max-width: 85%;
+    margin: auto;
+    border: 1px solid gray;
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.btn-wrapper {
+    text-align: right;
 }

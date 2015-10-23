@@ -54,6 +54,11 @@ namespace FamousQuoteQuiz.Web.Controllers
             return View(model);
         }
 
+        public ActionResult Settings()
+        {
+            return View();
+        }
+
         private QuestionViewModel GetRandomQuestion()
         {
             var questionsIds = this.Data.Questions
@@ -88,6 +93,11 @@ namespace FamousQuoteQuiz.Web.Controllers
             var model = new Tuple<string, bool>(question.Author.FullName, isAnswerCorrect);
 
             return PartialView("_ResultView", model);
+        }
+
+        public void ChangeMode(bool isBinaryMode)
+        {
+            MyGlobalVariables.BinaryMode = isBinaryMode;
         }
     }
 }
