@@ -13,6 +13,7 @@ namespace FamousQuoteQuiz.Web.Controllers
     public class HomeController : BaseController
     {
         private RandomGenerator generator;
+
         public HomeController(FamousQuizData data)
             : base(data)
         {
@@ -21,18 +22,72 @@ namespace FamousQuoteQuiz.Web.Controllers
 
         public ActionResult Index()
         {
-            var questionsIds = this.Data.Questions.All().Select(q => q.Id).ToList();
+            var model = new HomeViewModel();
+
+            var randomQuestion = GetRandomQuestion();
+
+            var authorIds = this.Data.Authors
+                .All()
+                .Select(a => a.Id)
+                .ToList();
+
+            var randomAuthorIds = new HashSet<int>();
+            randomAuthorIds.Add(randomQuestion.AuthorId);
+
+            while (randomAuthorIds.Count() < GlobalConstants.NumberOfAuthorsToChoose)
+            {
+                var randomIndex = generator.GetRandomNumber(0, authorIds.Count());
+                var randomAuthorId = authorIds[randomIndex];
+                randomAuthorIds.Add(randomAuthorId);
+            }
+
+            var authors = this.Data.Authors
+                .All()
+                .Where(a => randomAuthorIds.Contains(a.Id))
+                .ProjectTo<AuthorViewModel>()
+                .ToList()
+                .OrderBy(a => a.FullName);
+
+            model.Question = randomQuestion;
+            model.Authors = authors;
+
+            return View(model);
+        }
+
+        private QuestionViewModel GetRandomQuestion()
+        {
+            var questionsIds = this.Data.Questions
+                .All()
+                .Select(q => q.Id)
+                .ToList();
+
             var randomIndex = generator.GetRandomNumber(0, questionsIds.Count());
+
             var randomQuestionId = questionsIds[randomIndex];
 
             var randomQuestion = this.Data.Questions
                 .All()
                 .Where(q => q.Id == randomQuestionId)
-                .Project()
-                .To<QuestionViewModel>()
+                .ProjectTo<QuestionViewModel>()
                 .FirstOrDefault();
 
-            return View(randomQuestion);
+            return randomQuestion;
+        }
+
+        [HttpPost]
+        public ActionResult IsUserChoiseCorrect(int questionId, int authorId)
+        {
+            var isAnswerCorrect = false;
+            var question = this.Data.Questions.All().FirstOrDefault(q => q.Id == questionId);
+
+            if (question.AuthorId == authorId)
+            {
+                isAnswerCorrect = true;
+            }
+
+            var model = new Tuple<string, bool>(question.Author.FullName, isAnswerCorrect);
+
+            return PartialView("_ResultView", model);
         }
     }
 }

@@ -9,5 +9,7 @@ namespace FamousQuoteQuiz.Common
     public class GlobalConstants
     {
         public const string AdminRole = "Admin";
+        public const int NumberOfAuthorsToChoose = 3;
+        public const int DefaultMode = 0;
     }
 }
