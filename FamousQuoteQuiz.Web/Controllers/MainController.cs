@@ -24,7 +24,7 @@ namespace FamousQuoteQuiz.Web.Controllers
         {
             var model = new HomeViewModel();
 
-            var randomQuestion = GetRandomQuestion();
+            var randomQuestion = this.GetRandomQuestion();
 
             var authorIds = this.Data.Authors
                 .All()
