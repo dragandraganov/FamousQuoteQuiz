@@ -1,16 +1,17 @@
 ﻿@using FamousQuoteQuiz.Common
 
 @{
-    var mode = MyGlobalVariables.BinaryMode;
+    var mode = GlobalVariables.BinaryMode;
 }
 
-<label for="binary_mode">Binary Mode</label>
-<input class="rb_mode" type="radio" id="binary_mode" name="mode" checked="@mode" />
+<div class="">Change the mode:</div>
 
-<label for="multichoice_mode">Multi choice Mode</label>
-<input class="rb_mode" type="radio" id="multichoice_mode" name="mode" checked="@(!mode)" />
+<div class="mt30">
+    <label for="binary_mode">Binary Mode</label>
+    <input class="rb_mode" type="radio" id="binary_mode" name="mode" checked="@mode" />
 
-
-
+    <label for="multichoice_mode">Multi choice Mode</label>
+    <input class="rb_mode" type="radio" id="multichoice_mode" name="mode" checked="@(!mode)" />
+</div>
 
 

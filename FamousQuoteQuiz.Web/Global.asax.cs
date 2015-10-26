@@ -26,7 +26,7 @@ namespace FamousQuoteQuiz.Web
             var autoMapperConfig = new AutoMapperConfig(Assembly.GetExecutingAssembly());
             autoMapperConfig.Execute();
 
-            MyGlobalVariables.BinaryMode = true;
+            GlobalVariables.BinaryMode = true;
         }
     }
 }

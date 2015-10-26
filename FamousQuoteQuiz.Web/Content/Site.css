@@ -5,6 +5,7 @@
     margin: auto;
     border: 2px solid black;
     font-size: 16px;
+    overflow: hidden;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -37,15 +38,31 @@ textarea {
 }
 
 .description {
-    background-color: #fb4c8c;
+    background-color: #FF048C;
     border-radius: 5px;
     padding: 15px 5px;
     margin-bottom: 10px;
     color: white;
 }
 
+.mt30 {
+    margin-top: 30px;
+}
+
+.mb10 {
+    margin-bottom: 10px;
+}
+
+.mb30 {
+    margin-bottom: 30px;
+}
+
 .p10 {
     padding: 10px !important;
+}
+
+.pl10 {
+    padding-left: 10px;
 }
 
 .authors-wrapper {
@@ -83,4 +100,47 @@ textarea {
 
 .btn-wrapper {
     text-align: right;
+}
+
+.author-name {
+    font-size: 0.9em;
+}
+
+.btn-yes {
+    font-size: 1em;
+    color: white;
+    background-color: #6BA231;
+}
+
+.btn-no {
+    font-size: 1em;
+    color: white;
+    background-color: #FF0442;
+}
+
+.navbar {
+    margin-bottom: 0px !important;
+    background-color: #191919 !important;
+}
+
+.btn-pages {
+    display: block;
+    color: #C4C7C4;
+    border-radius: 0;
+}
+
+    .btn-pages:hover {
+        color: white;
+    }
+
+.btn-page-wrapper {
+    padding: 0;
+}
+
+.row {
+    margin: 0;
+}
+
+.page-active {
+    background-color: #898689;
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FamousQuoteQuiz.Common
 {
-    public static class MyGlobalVariables
+    public static class GlobalVariables
     {
         public static bool BinaryMode { get; set; }
     }

@@ -1,0 +1,10 @@
+﻿@model FamousQuoteQuiz.Web.ViewModels.AuthorViewModel
+
+@Html.HiddenFor(m => m.Id, new {@class="authorId", @id="authorId-"+@Model.Id})
+<div class="text-center mb30 author-name">
+    @Model.FullName?
+</div>
+<div class="row">
+    <div class="col-sm-3 btn btn-xs btn_binMode btn-yes" id="answer-true">Yes</div>
+    <div class="col-sm-offset-6 col-sm-3 btn btn-xs btn_binMode btn-no" id="answer-false">No</div>
+</div>

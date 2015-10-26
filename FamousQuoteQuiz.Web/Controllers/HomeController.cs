@@ -32,13 +32,24 @@ namespace FamousQuoteQuiz.Web.Controllers
                 .ToList();
 
             var randomAuthorIds = new HashSet<int>();
-            randomAuthorIds.Add(randomQuestion.AuthorId);
 
-            while (randomAuthorIds.Count() < GlobalConstants.NumberOfAuthorsToChoose)
+            if (GlobalVariables.BinaryMode)
             {
                 var randomIndex = generator.GetRandomNumber(0, authorIds.Count());
                 var randomAuthorId = authorIds[randomIndex];
                 randomAuthorIds.Add(randomAuthorId);
+            }
+
+            else
+            {
+                randomAuthorIds.Add(randomQuestion.AuthorId);
+
+                while (randomAuthorIds.Count() < GlobalConstants.NumberOfAuthorsToChoose)
+                {
+                    var randomIndex = generator.GetRandomNumber(0, authorIds.Count());
+                    var randomAuthorId = authorIds[randomIndex];
+                    randomAuthorIds.Add(randomAuthorId);
+                }
             }
 
             var authors = this.Data.Authors
@@ -80,24 +91,23 @@ namespace FamousQuoteQuiz.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult IsUserChoiseCorrect(int questionId, int authorId)
+        public ActionResult IsUserChoiseCorrect(int questionId, int authorId, bool isAnswerCorrect = true)
         {
-            var isAnswerCorrect = false;
-            var question = this.Data.Questions.All().FirstOrDefault(q => q.Id == questionId);
+            var question = this.Data.Questions
+                .All()
+                .FirstOrDefault(q => q.Id == questionId);
 
-            if (question.AuthorId == authorId)
-            {
-                isAnswerCorrect = true;
-            }
+            isAnswerCorrect = !((question.AuthorId == authorId) ^ isAnswerCorrect);
 
             var model = new Tuple<string, bool>(question.Author.FullName, isAnswerCorrect);
 
             return PartialView("_ResultView", model);
         }
 
+        [HttpPost]
         public void ChangeMode(bool isBinaryMode)
         {
-            MyGlobalVariables.BinaryMode = isBinaryMode;
+            GlobalVariables.BinaryMode = isBinaryMode;
         }
     }
 }

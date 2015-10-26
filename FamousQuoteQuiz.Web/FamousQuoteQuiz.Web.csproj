@@ -254,6 +254,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\_ResultView.cshtml" />
     <Content Include="Views\Home\Settings.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AuthorViewModel.cshtml" />
+    <Content Include="Views\Home\_BinaryModeView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

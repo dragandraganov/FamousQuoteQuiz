@@ -1,9 +1,11 @@
-﻿@model FamousQuoteQuiz.Web.ViewModels.HomeViewModel
+﻿@using FamousQuoteQuiz.Common
+@model FamousQuoteQuiz.Web.ViewModels.HomeViewModel
 
 <div>
     @Html.HiddenFor(m => m.Question.Id, new { @class = "question", @id = @Model.Question.Id })
 
-    <div class="gray-label">Who Said It?</div>
+    <div class="gray-label mb10">Who Said It?</div>
+
     <div class="description">"@Model.Question.Description"</div>
 
     <div id="result_view"></div>
@@ -11,11 +13,16 @@
         @Html.ActionLink("Next", "Index", null, new { @class = "hidden_el btn btn-info", @id = "btn_next" })
     </div>
     <div id="authors_container">
-        @foreach (var author in Model.Authors)
+        @if (GlobalVariables.BinaryMode)
         {
-            <div class="authors-wrapper">
-                <a class="authors" id="@author.Id">-> @author.FullName</a>
-            </div>
+            
+            var author = Model.Authors.FirstOrDefault();
+            
+            @Html.Partial("_BinaryModeView", author)
+        }
+        else
+        {
+            @Html.DisplayFor(m => m.Authors)
         }
     </div>
 
