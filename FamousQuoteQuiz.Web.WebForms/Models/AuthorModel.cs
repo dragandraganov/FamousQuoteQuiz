@@ -1,13 +1,13 @@
 ﻿using FamousQuoteQuiz.Models;
-using FamousQuoteQuiz.Web.Infrastructure.Mapping;
+using FamousQuoteQuiz.Web.WebForms.Infrastructure.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace FamousQuoteQuiz.Web.ViewModels
+namespace FamousQuoteQuiz.Web.WebForms.Models
 {
-    public class AuthorViewModel : IMapFrom<Author>, IHaveCustomMappings
+    public class AuthorModel : IMapFrom<Author>, IHaveCustomMappings
     {
         public int Id { get; set; }
 
@@ -15,7 +15,7 @@ namespace FamousQuoteQuiz.Web.ViewModels
 
         public void CreateMappings(AutoMapper.IConfiguration configuration)
         {
-            configuration.CreateMap<Author, AuthorViewModel>()
+            configuration.CreateMap<Author, AuthorModel>()
                  .ReverseMap();
         }
     }
