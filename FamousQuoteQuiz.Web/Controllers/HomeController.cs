@@ -69,6 +69,26 @@ namespace FamousQuoteQuiz.Web.Controllers
         {
             return View();
         }
+  
+        [HttpPost]
+        public ActionResult IsUserChoiseCorrect(int questionId, int authorId, bool isAnswerCorrect = true)
+        {
+            var question = this.Data.Questions
+                .All()
+                .FirstOrDefault(q => q.Id == questionId);
+
+            isAnswerCorrect = !((question.AuthorId == authorId) ^ isAnswerCorrect);
+
+            var model = new Tuple<string, bool>(question.Author.FullName, isAnswerCorrect);
+
+            return PartialView("_ResultView", model);
+        }
+
+        [HttpPost]
+        public void ChangeMode(bool isBinaryMode)
+        {
+            GlobalVariables.BinaryMode = isBinaryMode;
+        }
 
         private QuestionViewModel GetRandomQuestion()
         {
@@ -88,26 +108,6 @@ namespace FamousQuoteQuiz.Web.Controllers
                 .FirstOrDefault();
 
             return randomQuestion;
-        }
-
-        [HttpPost]
-        public ActionResult IsUserChoiseCorrect(int questionId, int authorId, bool isAnswerCorrect = true)
-        {
-            var question = this.Data.Questions
-                .All()
-                .FirstOrDefault(q => q.Id == questionId);
-
-            isAnswerCorrect = !((question.AuthorId == authorId) ^ isAnswerCorrect);
-
-            var model = new Tuple<string, bool>(question.Author.FullName, isAnswerCorrect);
-
-            return PartialView("_ResultView", model);
-        }
-
-        [HttpPost]
-        public void ChangeMode(bool isBinaryMode)
-        {
-            GlobalVariables.BinaryMode = isBinaryMode;
         }
     }
 }
