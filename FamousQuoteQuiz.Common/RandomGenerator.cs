@@ -9,30 +9,17 @@ namespace FamousQuoteQuiz.Common
     public class RandomGenerator
     {
         Random random = new Random();
-        public int GetRandomNumber(int minNumber = 1, int maxNumber = 2)
+
+        /// <summary>
+        /// Return random integer in range [minNumber, maxNumber]
+        /// </summary>
+        /// <param name="minNumber"></param>
+        /// <param name="maxNumber"></param>
+        /// <returns></returns>
+        public int GetRandomNumber(int minNumber, int maxNumber)
         {
-            int number = random.Next(minNumber, maxNumber);
+            int number = random.Next(minNumber, maxNumber + 1);
             return number;
-        }
-
-        public string GetRandomString(int minLength = 1, int maxLength = 10)
-        {
-            var letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-            var randomLength = random.Next(minLength, maxLength);
-            var result = new StringBuilder();
-            for (int i = 0; i < randomLength; i++)
-            {
-                var randomSymbolIndex = random.Next(0, letters.Length);
-                result.Append(letters[randomSymbolIndex].ToString());
-            }
-
-            return result.ToString();
-        }
-
-        public double GetRandomDouble(double minNumber = 0.00, double maxNumber = 23.99)
-        {
-            double hour = minNumber + (maxNumber - minNumber) * random.NextDouble();
-            return hour;
         }
     }
 }

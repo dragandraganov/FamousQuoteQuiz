@@ -10,11 +10,11 @@ using FamousQuoteQuiz.Web.ViewModels;
 
 namespace FamousQuoteQuiz.Web.Controllers
 {
-    public class HomeController : BaseController
+    public class MainController : BaseController
     {
         private RandomGenerator generator;
 
-        public HomeController(FamousQuizData data)
+        public MainController(FamousQuizData data)
             : base(data)
         {
             this.generator = new RandomGenerator();
@@ -35,7 +35,7 @@ namespace FamousQuoteQuiz.Web.Controllers
 
             if (GlobalVariables.BinaryMode)
             {
-                var randomIndex = generator.GetRandomNumber(0, authorIds.Count());
+                var randomIndex = generator.GetRandomNumber(0, authorIds.Count()-1);
                 var randomAuthorId = authorIds[randomIndex];
                 randomAuthorIds.Add(randomAuthorId);
             }
@@ -46,7 +46,7 @@ namespace FamousQuoteQuiz.Web.Controllers
 
                 while (randomAuthorIds.Count() < GlobalConstants.NumberOfAuthorsToChoose)
                 {
-                    var randomIndex = generator.GetRandomNumber(0, authorIds.Count());
+                    var randomIndex = generator.GetRandomNumber(0, authorIds.Count()-1);
                     var randomAuthorId = authorIds[randomIndex];
                     randomAuthorIds.Add(randomAuthorId);
                 }
@@ -97,7 +97,7 @@ namespace FamousQuoteQuiz.Web.Controllers
                 .Select(q => q.Id)
                 .ToList();
 
-            var randomIndex = generator.GetRandomNumber(0, questionsIds.Count());
+            var randomIndex = generator.GetRandomNumber(0, questionsIds.Count()-1);
 
             var randomQuestionId = questionsIds[randomIndex];
 

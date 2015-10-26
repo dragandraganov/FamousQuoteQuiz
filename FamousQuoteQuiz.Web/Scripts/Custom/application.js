@@ -3,7 +3,7 @@
         var questionId = $(".question").attr('id');
         var authorId = $(this).attr('id');
         $.ajax({
-            url: "/Home/IsUserChoiseCorrect",
+            url: "/Main/IsUserChoiseCorrect",
             method: "POST",
             data: { questionId: questionId, authorId: authorId },
             success: function (data) {
@@ -20,7 +20,7 @@
         var authorId = $(".authorId").attr('id').split('-')[1];
         var typeOfAnswer = $(this).attr('id').split('-')[1];
         $.ajax({
-            url: "/Home/IsUserChoiseCorrect",
+            url: "/Main/IsUserChoiseCorrect",
             method: "POST",
             data: { questionId: questionId, authorId: authorId, isAnswerCorrect: typeOfAnswer },
             success: function (data) {
@@ -39,7 +39,7 @@
         }
         console.log(isBinaryMode);
         $.ajax({
-            url: "/Home/ChangeMode",
+            url: "/Main/ChangeMode",
             method: "POST",
             data: { isBinaryMode: isBinaryMode }
         });

@@ -9,15 +9,18 @@
 
 </head>
 <body>
+    @{
+        var controller = ViewContext.RouteData.Values["Controller"].ToString();
+    }
     <div class="navbar navbar-inverse navbar-static-top">
         <div class="row">
             <div class="col-xs-6 text-center btn-page-wrapper">
-                <a href="@Url.Action("Index", "Home")" class='btn btn-lg btn-pages  @(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "page-active" : "")' title=" quiz">
+                <a href="@Url.Action("Index", "Main")" class='btn btn-lg btn-pages  @(controller == "Main" ? "page-active" : "")' title="Quiz">
                     <span class="glyphicon glyphicon-list-alt" />
                 </a>
             </div>
             <div class="col-xs-6 text-center btn-page-wrapper">
-                <a href="@Url.Action("Settings", "Home")" class='btn btn-lg btn-pages @(ViewContext.RouteData.Values["Action"].ToString() == "Settings" ? "page-active" : "")' title="Settings">
+                <a href="@Url.Action("Index", "Settings")" class='btn btn-lg btn-pages @(controller == "Settings" ? "page-active" : "")' title="Settings">
                     <span class="glyphicon glyphicon-th" />
                 </a>
             </div>
