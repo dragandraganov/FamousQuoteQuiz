@@ -7,22 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace FamousQuoteQuiz.Web.WebForms
-{
-
-
-    public partial class SiteMaster
-    {
-
+namespace FamousQuoteQuiz.Web.WebForms {
+    
+    
+    public partial class SiteMaster {
+        
         /// <summary>
-        /// HeadContent control.
+        /// btnMainPage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
-
+        protected global::System.Web.UI.WebControls.LinkButton btnMainPage;
+        
+        /// <summary>
+        /// btnSettings control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnSettings;
+        
         /// <summary>
         /// MainContent control.
         /// </summary>

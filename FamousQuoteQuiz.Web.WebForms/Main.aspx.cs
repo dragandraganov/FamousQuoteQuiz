@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FamousQuoteQuiz.Web.WebForms.Factories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace FamousQuoteQuiz.Web.WebForms
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var randomQuestion = QuestionModelFactory.GetRandomQuestion();
+            description.Text = randomQuestion.Description;
         }
     }
 }

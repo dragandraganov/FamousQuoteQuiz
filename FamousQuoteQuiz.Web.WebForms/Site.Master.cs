@@ -13,5 +13,15 @@ namespace FamousQuoteQuiz.Web.WebForms
         {
 
         }
+
+        protected void btnMainPage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Main.aspx");
+        }
+
+        protected void btnSettings_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Settings.aspx");
+        }
     }
 }
