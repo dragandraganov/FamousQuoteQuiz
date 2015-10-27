@@ -11,5 +11,9 @@ namespace FamousQuoteQuiz.Web.WebForms.Factories
         QuestionModel GetRandomQuestion();
 
         int GetRandomAuthorId(IList<int> authorIds);
+
+        AuthorModel GetRandomAuthor();
+
+        ICollection<AuthorModel> GetRandomAuthors(int rightAuthorId);
     }
 }

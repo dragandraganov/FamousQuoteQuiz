@@ -38,6 +38,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
+        <%: Scripts.Render("~/bundles/application") %>
 
         <div class="navbar navbar-inverse navbar-static-top">
             <div class="row">

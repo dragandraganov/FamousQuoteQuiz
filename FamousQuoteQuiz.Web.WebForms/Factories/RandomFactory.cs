@@ -51,5 +51,47 @@ namespace FamousQuoteQuiz.Web.WebForms.Factories
             return randomAuthorId;
         }
 
+        public AuthorModel GetRandomAuthor()
+        {
+            var authorIds = this.data.Authors
+             .All()
+             .Select(a => a.Id)
+             .ToList();
+
+            var randomAuthorId = this.GetRandomAuthorId(authorIds);
+
+            var author = this.data.Authors
+                .All().Where(a => a.Id == randomAuthorId)
+                .ProjectTo<AuthorModel>()
+                .FirstOrDefault();
+
+            return author;
+        }
+
+        public ICollection<AuthorModel> GetRandomAuthors(int rightAuthorId)
+        {
+            var authorIds = this.data.Authors
+             .All()
+             .Select(a => a.Id)
+             .ToList();
+
+            var randomAuthorIds = new HashSet<int>();
+            randomAuthorIds.Add(rightAuthorId);
+
+            while (randomAuthorIds.Count() < GlobalConstants.NumberOfAuthorsToChoose)
+            {
+                var randomAuthorId = this.GetRandomAuthorId(authorIds);
+                randomAuthorIds.Add(randomAuthorId);
+            }
+
+            var randomAuthors = this.data.Authors
+                .All()
+                .Where(a => randomAuthorIds.Contains(a.Id))
+                .OrderBy(a => a.FullName)
+                .ProjectTo<AuthorModel>()
+                .ToList();
+
+            return randomAuthors;
+        }
     }
 }

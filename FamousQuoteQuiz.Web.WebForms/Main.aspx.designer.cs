@@ -13,6 +13,15 @@ namespace FamousQuoteQuiz.Web.WebForms {
     public partial class Main {
         
         /// <summary>
+        /// hidden_questionId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label hidden_questionId;
+        
+        /// <summary>
         /// description control.
         /// </summary>
         /// <remarks>
@@ -29,5 +38,32 @@ namespace FamousQuoteQuiz.Web.WebForms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btn_next;
+        
+        /// <summary>
+        /// hidden_authorId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label hidden_authorId;
+        
+        /// <summary>
+        /// author_name control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel author_name;
+        
+        /// <summary>
+        /// authors_list control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView authors_list;
     }
 }

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using FamousQuoteQuiz.Data;
 using FamousQuoteQuiz.Web.WebForms.Factories;
+using FamousQuoteQuiz.Common;
 
 namespace FamousQuoteQuiz.Web.WebForms
 {
@@ -15,10 +16,10 @@ namespace FamousQuoteQuiz.Web.WebForms
 
         public IRandomFactory Factory { get; set; }
 
-        public BasePage(IFamousQuizData data, IRandomFactory factory)
+        public BasePage()
         {
-            this.Data = data;
-            this.Factory = factory;
+            this.Data = new FamousQuizData(new FamousQuizDbContext());
+            this.Factory = new RandomFactory(this.Data, new RandomGenerator());
         }
 
         protected virtual void Page_Load(object sender, EventArgs e)
