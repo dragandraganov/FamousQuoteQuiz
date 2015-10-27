@@ -12,7 +12,7 @@ namespace FamousQuoteQuiz.Web.Controllers
 {
     public class SettingsController : BaseController
     {
-        public SettingsController(FamousQuizData data)
+        public SettingsController(IFamousQuizData data)
             : base(data)
         {
         }
