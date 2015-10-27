@@ -37,7 +37,6 @@
         if ($(this).attr('id') == 'binary_mode') {
             isBinaryMode = true;
         }
-        console.log(isBinaryMode);
         $.ajax({
             url: "/Main/ChangeMode",
             method: "POST",

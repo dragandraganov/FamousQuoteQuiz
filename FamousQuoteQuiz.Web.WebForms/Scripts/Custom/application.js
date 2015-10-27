@@ -32,14 +32,15 @@
 
     $('.rb_mode').change(function () {
         var isBinaryMode = false;
-        if ($(this).attr('id') == 'binary_mode') {
+        if ($(this).find("input").attr('id') == 'binary_mode') {
             isBinaryMode = true;
         }
-        console.log(isBinaryMode);
         $.ajax({
-            url: "/Main/ChangeMode",
+            url: "/Settings.aspx/ChangeMode",
             method: "POST",
-            data: { isBinaryMode: isBinaryMode }
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ isBinaryMode: isBinaryMode })
         });
     });
 });

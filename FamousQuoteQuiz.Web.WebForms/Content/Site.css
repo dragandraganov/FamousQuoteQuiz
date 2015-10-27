@@ -144,3 +144,7 @@ textarea {
 .page-active {
     background-color: #898689;
 }
+
+.container {
+    margin-top: 10px;
+}

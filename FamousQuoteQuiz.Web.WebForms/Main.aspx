@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Main.aspx.cs" Inherits="FamousQuoteQuiz.Web.WebForms.Main" %>
-
 <%@ Import Namespace="FamousQuoteQuiz.Common" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">

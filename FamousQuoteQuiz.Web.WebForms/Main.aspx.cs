@@ -17,7 +17,6 @@ namespace FamousQuoteQuiz.Web.WebForms
     {
         protected override void Page_Load(object sender, EventArgs e)
         {
-
             var randomQuestion = this.Factory.GetRandomQuestion();
             hidden_questionId.ID = "questionId-" + randomQuestion.Id;
             description.Controls.Add(new LiteralControl(randomQuestion.Description));

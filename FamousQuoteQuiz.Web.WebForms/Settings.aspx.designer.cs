@@ -11,5 +11,23 @@ namespace FamousQuoteQuiz.Web.WebForms {
     
     
     public partial class Settings {
+        
+        /// <summary>
+        /// binary_mode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton binary_mode;
+        
+        /// <summary>
+        /// multichoice_mode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton multichoice_mode;
     }
 }
