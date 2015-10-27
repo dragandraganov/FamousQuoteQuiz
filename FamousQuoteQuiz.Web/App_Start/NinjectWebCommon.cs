@@ -12,6 +12,8 @@ namespace FamousQuoteQuiz.Web.App_Start
     using Ninject.Web.Common;
     using System.Data.Entity;
     using FamousQuoteQuiz.Data;
+    using FamousQuoteQuiz.Common;
+    using FamousQuoteQuiz.Web.Infrastructure.Factories;
 
     public static class NinjectWebCommon 
     {
@@ -65,6 +67,9 @@ namespace FamousQuoteQuiz.Web.App_Start
         {
             kernel.Bind<DbContext>().To<FamousQuizDbContext>();
             kernel.Bind<IFamousQuizData>().To<FamousQuizData>();
+            kernel.Bind<IRandomGenerator>().To<RandomGenerator>();
+            kernel.Bind<IRandomFactory>().To<RandomFactory>();
+
         }        
     }
 }

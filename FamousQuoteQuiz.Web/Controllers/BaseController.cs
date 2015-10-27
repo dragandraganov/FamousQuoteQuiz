@@ -9,9 +9,9 @@ namespace FamousQuoteQuiz.Web.Controllers
 {
     public class BaseController : Controller
     {
-        protected FamousQuizData Data { get; private set; }
+        protected IFamousQuizData Data { get; private set; }
 
-        public BaseController(FamousQuizData data)
+        public BaseController(IFamousQuizData data)
         {
             this.Data = data;
         }

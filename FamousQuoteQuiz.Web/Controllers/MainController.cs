@@ -7,24 +7,25 @@ using System.Web;
 using System.Web.Mvc;
 using AutoMapper.QueryableExtensions;
 using FamousQuoteQuiz.Web.ViewModels;
+using FamousQuoteQuiz.Web.Infrastructure.Factories;
 
 namespace FamousQuoteQuiz.Web.Controllers
 {
     public class MainController : BaseController
     {
-        private RandomGenerator generator;
+        private IRandomFactory factory;
 
-        public MainController(FamousQuizData data)
+        public MainController(IFamousQuizData data, IRandomFactory factory)
             : base(data)
         {
-            this.generator = new RandomGenerator();
+            this.factory = factory;
         }
 
         public ActionResult Index()
         {
             var model = new HomeViewModel();
 
-            var randomQuestion = this.GetRandomQuestion();
+            var randomQuestion = factory.GetRandomQuestion();
 
             var authorIds = this.Data.Authors
                 .All()
@@ -35,8 +36,7 @@ namespace FamousQuoteQuiz.Web.Controllers
 
             if (GlobalVariables.BinaryMode)
             {
-                var randomIndex = generator.GetRandomNumber(0, authorIds.Count()-1);
-                var randomAuthorId = authorIds[randomIndex];
+                var randomAuthorId = factory.GetRandomAuthorId(authorIds);
                 randomAuthorIds.Add(randomAuthorId);
             }
 
@@ -46,8 +46,7 @@ namespace FamousQuoteQuiz.Web.Controllers
 
                 while (randomAuthorIds.Count() < GlobalConstants.NumberOfAuthorsToChoose)
                 {
-                    var randomIndex = generator.GetRandomNumber(0, authorIds.Count()-1);
-                    var randomAuthorId = authorIds[randomIndex];
+                    var randomAuthorId = factory.GetRandomAuthorId(authorIds);
                     randomAuthorIds.Add(randomAuthorId);
                 }
             }
@@ -88,26 +87,6 @@ namespace FamousQuoteQuiz.Web.Controllers
         public void ChangeMode(bool isBinaryMode)
         {
             GlobalVariables.BinaryMode = isBinaryMode;
-        }
-
-        private QuestionViewModel GetRandomQuestion()
-        {
-            var questionsIds = this.Data.Questions
-                .All()
-                .Select(q => q.Id)
-                .ToList();
-
-            var randomIndex = generator.GetRandomNumber(0, questionsIds.Count()-1);
-
-            var randomQuestionId = questionsIds[randomIndex];
-
-            var randomQuestion = this.Data.Questions
-                .All()
-                .Where(q => q.Id == randomQuestionId)
-                .ProjectTo<QuestionViewModel>()
-                .FirstOrDefault();
-
-            return randomQuestion;
         }
     }
 }

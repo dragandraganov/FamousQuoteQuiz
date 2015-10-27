@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="GlobalConstants.cs" />
     <Compile Include="GlobalVariables.cs" />
+    <Compile Include="IRandomGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomGenerator.cs" />
   </ItemGroup>

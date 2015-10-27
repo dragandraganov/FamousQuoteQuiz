@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FamousQuoteQuiz.Common
 {
-    public class RandomGenerator
+    public class RandomGenerator : IRandomGenerator
     {
         Random random = new Random();
 
