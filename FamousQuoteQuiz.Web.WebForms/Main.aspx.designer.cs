@@ -10,7 +10,7 @@
 namespace FamousQuoteQuiz.Web.WebForms {
     
     
-    public partial class _Default {
+    public partial class Main {
         
         /// <summary>
         /// description control.
@@ -19,6 +19,15 @@ namespace FamousQuoteQuiz.Web.WebForms {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label description;
+        protected global::System.Web.UI.WebControls.Panel description;
+        
+        /// <summary>
+        /// btn_next control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btn_next;
     }
 }
