@@ -12,7 +12,6 @@ namespace FamousQuoteQuiz.Data.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<FamousQuizDbContext>
     {
-        private UserManager<User> userManager;
 
         public Configuration()
         {
@@ -23,24 +22,6 @@ namespace FamousQuoteQuiz.Data.Migrations
 
         protected override void Seed(FamousQuoteQuiz.Data.FamousQuizDbContext context)
         {
-            if (context.Users.FirstOrDefault(u => u.Email == "admin@com.com") == null)
-            {
-                this.userManager = new UserManager<User>(new UserStore<User>(context));
-
-                if (context.Roles.FirstOrDefault(r => r.Name == GlobalConstants.AdminRole) == null)
-                {
-                    var adminRole = new IdentityRole(GlobalConstants.AdminRole);
-                    context.Roles.Add(adminRole);
-                    context.SaveChanges();
-                }
-
-                var user = new User();
-                user.UserName = "admin@com.com";
-                user.Email = "admin@com.com";
-                this.userManager.Create(user, "111111");
-                this.userManager.AddToRole(user.Id, GlobalConstants.AdminRole);
-                context.SaveChanges();
-            }
         }
     }
 }

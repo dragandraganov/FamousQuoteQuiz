@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace FamousQuoteQuiz.Data
 {
-    public class FamousQuizDbContext : IdentityDbContext<User>
+    public class FamousQuizDbContext : DbContext
     {
         public FamousQuizDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection")
         {
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<FamousQuizDbContext, Configuration>());
         }
