@@ -40,43 +40,9 @@
                 </ItemTemplate>
             </asp:ListView>
             <%} %>
-            <%-- @if (GlobalVariables.BinaryMode)
-        {
-            
-            var author = Model.Authors.FirstOrDefault();
-            
-            @Html.Partial("_BinaryModeView", author)
-        }
-        else
-        {
-            @Html.DisplayFor(m => m.Authors)
-        }--%>
         </div>
-
     </div>
-    <%-- <script>
-        $(document).ready(function () {
-            $(".btn_guess").click(function () {
-                var questionId = $(".question").attr('id').split('-')[1];
-                var authorId = $(".authorId").attr('id').split('-')[1];
-                var typeOfAnswer = $(this).attr('id').split('_')[1];
-                $.ajax({
-                    url: '<%= ResolveUrl("Main.aspx/IsUserChoiseCorrect")%>',
-                    method: "POST",
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    data: JSON.stringify({ questionId: questionId, authorId: authorId, isAnswerCorrect: typeOfAnswer }),
-                    success: function (data) {
-                        $("#result_view").html(data);
-                        $("#authors_container").hide();
-                        $("#result_view").show();
-                        $(".hidden_el").show();
-                    },
-                    error: function (data) {
-                        console.log(data);
-                    }
-                });
-            });
-        })
-    </script>--%>
+     <script type="text/javascript">
+         $("#btnMainPage").addClass('page-active');
+    </script>
 </asp:Content>

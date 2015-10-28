@@ -10,7 +10,7 @@ using FamousQuoteQuiz.Common;
 
 namespace FamousQuoteQuiz.Web.WebForms
 {
-    public abstract partial class BasePage : Ninject.Web.PageBase
+    public abstract partial class BasePage : Page
     {
         public IFamousQuizData Data { get; set; }
 

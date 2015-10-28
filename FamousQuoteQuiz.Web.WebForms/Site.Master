@@ -43,12 +43,12 @@
         <div class="navbar navbar-inverse navbar-static-top">
             <div class="row">
                 <div class="col-xs-6 text-center btn-page-wrapper">
-                    <asp:LinkButton runat="server" ID="btnMainPage" CssClass="btn btn-lg btn-pages" OnClick="btnMainPage_Click">
+                    <asp:LinkButton runat="server" ID="btnMainPage" ClientIDMode="Static" CssClass="btn btn-lg btn-pages" OnClick="btnMainPage_Click">
                     <span class="glyphicon glyphicon-list-alt" />
                     </asp:LinkButton>
                 </div>
                 <div class="col-xs-6 text-center btn-page-wrapper">
-                    <asp:LinkButton runat="server" ID="btnSettings" CssClass="btn btn-lg btn-pages" OnClick="btnSettings_Click">
+                    <asp:LinkButton runat="server" ID="btnSettings" ClientIDMode="Static" CssClass="btn btn-lg btn-pages" OnClick="btnSettings_Click">
                     <span class="glyphicon glyphicon-th" />
                     </asp:LinkButton>
                 </div>
